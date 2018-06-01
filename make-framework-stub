@@ -1,0 +1,61 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+cd "$(dirname "$0")"
+
+xcrun tapi stubify -o raw-stub.tbd /System/Library/PrivateFrameworks/SafariShared.framework/SafariShared
+
+# That makes a yaml file, which contains document(s) something like this:
+# { <framework metadata>, exports: [ <per-arch-exports> ] }
+# Inside those 'exports' hashes is a key 'allowable-clients'. If this key exists, and your program's
+# app ID isn't in it, the linker won't let you link with the framework.
+# We've got to get rid of that if we want to compile.
+# Luckily this check seems (for now, anyway) to only happen at link-time, so if we remove it
+# from the .tbd, we're golden.
+# That's what this unnecessarily complicated ruby script does.
+
+/usr/bin/env ruby <<-EOF
+    require 'yaml'
+
+    # We're using the mid-level interface to the parser, the one that gives us back an AST.
+    # Using the standard YAML.load is a lot more convenient, but strips some metadata that the linker wants
+    # (namely, the '--- !tapi-tbd-<version>' tag at the root, and the explicit '...' document ending).
+
+    # With this interface, hashes are shittily an array [key, value, key, value, ...], so we
+    # have to find the index of the key we want and grab the next element to get its value.
+    
+    # I guess you can only turn streams back into yaml, not document nodes?
+    # Using YAML.parse_file(...).to_yaml throws an exception.
+
+    stub_stream = YAML.parse_stream(File.read('raw-stub.tbd'))
+
+    stub_stream.children.each do |stub_doc|
+        doc_root = stub_doc.root
+
+        # Find the "exports" sequence
+        exports_key_idx = doc_root.children.find_index { |n| n.respond_to? :value and n.value == 'exports' }
+        exports_seq = doc_root.children[exports_key_idx + 1]
+
+        # For each entry in the exports...
+        exports_seq.children.each do |exports_mapping|
+            # Find and remove the "allowable-clients" map
+            allowable_clients_idx = exports_mapping.children.find_index { |n| n.respond_to? :value and n.value == 'allowable-clients' }
+
+            if allowable_clients_idx != nil
+                exports_mapping.children.delete_at(allowable_clients_idx)  # Remove the key
+                exports_mapping.children.delete_at(allowable_clients_idx)  # Remove the value
+            end
+        end
+    end
+
+    File.write('modified-stub.tbd', stub_stream.to_yaml)
+EOF
+
+
+# This seems like decent validation.
+# It'll exit non-zero (and thus kill this script) and print a message to stderr if it's bad.
+xcrun tapi archive --info modified-stub.tbd >/dev/null
+
+rm raw-stub.tbd
+mv modified-stub.tbd FrameworkStubs/SafariShared.framework/SafariShared.tbd

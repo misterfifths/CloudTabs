@@ -1,0 +1,321 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		BD1F778820C11096005D55BD /* SafariShared.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD1F778720C11096005D55BD /* SafariShared.framework */; };
+		BDB0821B20C1EDF900A409FA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BDB0821A20C1EDF900A409FA /* AppDelegate.m */; };
+		BDB4BCC620BDEF980058C658 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BDB4BCC520BDEF980058C658 /* main.m */; };
+		BDB4BCDD20BE024A0058C658 /* WebLocWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = BDB4BCDC20BE024A0058C658 /* WebLocWriter.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		BDB4BCC020BDEF980058C658 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		BD1F778720C11096005D55BD /* SafariShared.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SafariShared.framework; path = ../FrameworkStubs/SafariShared.framework; sourceTree = "<group>"; };
+		BDB0821520C1EB6000A409FA /* WBSCloudTabStore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WBSCloudTabStore.h; sourceTree = "<group>"; };
+		BDB0821620C1EB8D00A409FA /* SafariShared.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SafariShared.h; sourceTree = "<group>"; };
+		BDB0821720C1EC3800A409FA /* WBSCloudTabDevice.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WBSCloudTabDevice.h; sourceTree = "<group>"; };
+		BDB0821820C1ECC400A409FA /* WBSCloudTab.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WBSCloudTab.h; sourceTree = "<group>"; };
+		BDB0821920C1EDF800A409FA /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		BDB0821A20C1EDF900A409FA /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		BDB4BCC220BDEF980058C658 /* CloudTabs */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CloudTabs; sourceTree = BUILT_PRODUCTS_DIR; };
+		BDB4BCC520BDEF980058C658 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		BDB4BCDB20BE024A0058C658 /* WebLocWriter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WebLocWriter.h; sourceTree = "<group>"; };
+		BDB4BCDC20BE024A0058C658 /* WebLocWriter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WebLocWriter.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		BDB4BCBF20BDEF980058C658 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BD1F778820C11096005D55BD /* SafariShared.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		BDB0821420C1EB3100A409FA /* SafariShared */ = {
+			isa = PBXGroup;
+			children = (
+				BDB0821620C1EB8D00A409FA /* SafariShared.h */,
+				BDB0821520C1EB6000A409FA /* WBSCloudTabStore.h */,
+				BDB0821720C1EC3800A409FA /* WBSCloudTabDevice.h */,
+				BDB0821820C1ECC400A409FA /* WBSCloudTab.h */,
+			);
+			path = SafariShared;
+			sourceTree = "<group>";
+		};
+		BDB4BCB920BDEF980058C658 = {
+			isa = PBXGroup;
+			children = (
+				BDB4BCC420BDEF980058C658 /* CloudTabs */,
+				BDB4BCC320BDEF980058C658 /* Products */,
+				BDB4BCCF20BDEFCB0058C658 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		BDB4BCC320BDEF980058C658 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BDB4BCC220BDEF980058C658 /* CloudTabs */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BDB4BCC420BDEF980058C658 /* CloudTabs */ = {
+			isa = PBXGroup;
+			children = (
+				BDB0821420C1EB3100A409FA /* SafariShared */,
+				BDB0821920C1EDF800A409FA /* AppDelegate.h */,
+				BDB0821A20C1EDF900A409FA /* AppDelegate.m */,
+				BDB4BCC520BDEF980058C658 /* main.m */,
+				BDB4BCDB20BE024A0058C658 /* WebLocWriter.h */,
+				BDB4BCDC20BE024A0058C658 /* WebLocWriter.m */,
+			);
+			path = CloudTabs;
+			sourceTree = "<group>";
+		};
+		BDB4BCCF20BDEFCB0058C658 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BD1F778720C11096005D55BD /* SafariShared.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		BDB4BCC120BDEF980058C658 /* CloudTabs */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BDB4BCC920BDEF980058C658 /* Build configuration list for PBXNativeTarget "CloudTabs" */;
+			buildPhases = (
+				BDB4BCBE20BDEF980058C658 /* Sources */,
+				BDB4BCBF20BDEF980058C658 /* Frameworks */,
+				BDB4BCC020BDEF980058C658 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CloudTabs;
+			productName = CloudTabs;
+			productReference = BDB4BCC220BDEF980058C658 /* CloudTabs */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BDB4BCBA20BDEF980058C658 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0930;
+				ORGANIZATIONNAME = "Misterfifths Heavy Industries";
+				TargetAttributes = {
+					BDB4BCC120BDEF980058C658 = {
+						CreatedOnToolsVersion = 9.3.1;
+					};
+				};
+			};
+			buildConfigurationList = BDB4BCBD20BDEF980058C658 /* Build configuration list for PBXProject "CloudTabs" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = BDB4BCB920BDEF980058C658;
+			productRefGroup = BDB4BCC320BDEF980058C658 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BDB4BCC120BDEF980058C658 /* CloudTabs */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BDB4BCBE20BDEF980058C658 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BDB0821B20C1EDF900A409FA /* AppDelegate.m in Sources */,
+				BDB4BCDD20BE024A0058C658 /* WebLocWriter.m in Sources */,
+				BDB4BCC620BDEF980058C658 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		BDB4BCC720BDEF980058C658 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		BDB4BCC820BDEF980058C658 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		BDB4BCCA20BDEF980058C658 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9H94YF52ZT;
+				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/../FrameworkStubs";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		BDB4BCCB20BDEF980058C658 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9H94YF52ZT;
+				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/../FrameworkStubs";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		BDB4BCBD20BDEF980058C658 /* Build configuration list for PBXProject "CloudTabs" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BDB4BCC720BDEF980058C658 /* Debug */,
+				BDB4BCC820BDEF980058C658 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BDB4BCC920BDEF980058C658 /* Build configuration list for PBXNativeTarget "CloudTabs" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BDB4BCCA20BDEF980058C658 /* Debug */,
+				BDB4BCCB20BDEF980058C658 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BDB4BCBA20BDEF980058C658 /* Project object */;
+}
