@@ -7,26 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		BD1F778820C11096005D55BD /* SafariShared.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD1F778720C11096005D55BD /* SafariShared.framework */; };
 		BDB0821B20C1EDF900A409FA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BDB0821A20C1EDF900A409FA /* AppDelegate.m */; };
 		BDB4BCC620BDEF980058C658 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BDB4BCC520BDEF980058C658 /* main.m */; };
 		BDB4BCDD20BE024A0058C658 /* WebLocWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = BDB4BCDC20BE024A0058C658 /* WebLocWriter.m */; };
+		BDC7C71320C242AF00B4E933 /* SafariShared.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDC7C71220C242AF00B4E933 /* SafariShared.framework */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXCopyFilesBuildPhase section */
-		BDB4BCC020BDEF980058C658 /* CopyFiles */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = /usr/share/man/man1/;
-			dstSubfolderSpec = 0;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 1;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
 /* Begin PBXFileReference section */
-		BD1F778720C11096005D55BD /* SafariShared.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SafariShared.framework; path = ../FrameworkStubs/SafariShared.framework; sourceTree = "<group>"; };
 		BDB0821520C1EB6000A409FA /* WBSCloudTabStore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WBSCloudTabStore.h; sourceTree = "<group>"; };
 		BDB0821620C1EB8D00A409FA /* SafariShared.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SafariShared.h; sourceTree = "<group>"; };
 		BDB0821720C1EC3800A409FA /* WBSCloudTabDevice.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WBSCloudTabDevice.h; sourceTree = "<group>"; };
@@ -37,6 +24,7 @@
 		BDB4BCC520BDEF980058C658 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		BDB4BCDB20BE024A0058C658 /* WebLocWriter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WebLocWriter.h; sourceTree = "<group>"; };
 		BDB4BCDC20BE024A0058C658 /* WebLocWriter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WebLocWriter.m; sourceTree = "<group>"; };
+		BDC7C71220C242AF00B4E933 /* SafariShared.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SafariShared.framework; path = FrameworkStubs/SafariShared.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,7 +32,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BD1F778820C11096005D55BD /* SafariShared.framework in Frameworks */,
+				BDC7C71320C242AF00B4E933 /* SafariShared.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -95,7 +83,7 @@
 		BDB4BCCF20BDEFCB0058C658 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				BD1F778720C11096005D55BD /* SafariShared.framework */,
+				BDC7C71220C242AF00B4E933 /* SafariShared.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -109,7 +97,6 @@
 			buildPhases = (
 				BDB4BCBE20BDEF980058C658 /* Sources */,
 				BDB4BCBF20BDEF980058C658 /* Frameworks */,
-				BDB4BCC020BDEF980058C658 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -278,8 +265,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
+				DEPLOYMENT_LOCATION = YES;
 				DEVELOPMENT_TEAM = 9H94YF52ZT;
-				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/../FrameworkStubs";
+				DSTROOT = "";
+				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/FrameworkStubs";
+				INSTALL_PATH = "$(PROJECT_DIR)/bin";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -288,8 +278,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
+				DEPLOYMENT_LOCATION = YES;
 				DEVELOPMENT_TEAM = 9H94YF52ZT;
-				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/../FrameworkStubs";
+				DSTROOT = "";
+				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/FrameworkStubs";
+				INSTALL_PATH = "$(PROJECT_DIR)/bin";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

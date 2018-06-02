@@ -1,5 +1,7 @@
 raw-stub.tbd
 modified-stub.tbd
+bin/
+extension-key.pem
 
 # OS X
 .DS_Store
