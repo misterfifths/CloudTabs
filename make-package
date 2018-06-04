@@ -1,0 +1,63 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+cd "$(dirname "$0")"
+
+
+CHROME="/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
+CHROME_APP_SUPPORT_DIR="/Library/Google/Chrome"
+APP_SUPPORT_DIR="/Library/Application Support/ChromeCloudTabs"
+BUNDLE_ID="com.github.misterfifths.CloudTabs"
+VERSION=$(cat VERSION)
+
+
+echo ">> Moving things into place..."
+
+cp -R extension build/
+
+mkdir -p build/external-extension-settings
+cp external-extension-thing.json "build/external-extension-settings/__EXTENSION_ID__.json"
+
+mkdir -p build/native-host-manifest
+cp com.github.misterfifths.cloudtabs_host.json build/native-host-manifest
+
+
+echo ">> Updating extension key..."
+./rekey-extension
+
+
+echo ">> Patching version number..."
+./patch-version
+
+
+echo ">> Sanitizing..."
+
+# Clean up any junk and extended attributes before packaging
+find build -type f -name .DS_Store -delete
+find build -type f -exec xattr -c "{}" \;
+
+
+echo ">> Packing extension..."
+
+# There's no way to control the filename of the .crx this generates; it's always <directory name>.crx.
+# --no-message-box seems to have no effect on recent Chromes, but apparently once upon a time it was necessary
+# to do this without user intervention.
+"$CHROME" --pack-extension="`pwd`/build/extension" --pack-extension-key=extension-key.pem --no-message-box
+
+echo ">> Sanitizing (again)..."
+xattr -c build/extension.crx
+
+
+mv build/extension.crx pkg/CloudTabs.crx
+
+
+echo ">> Generating .pkg..."
+
+productbuild \
+    --root build/app-support "$APP_SUPPORT_DIR" \
+    --root build/external-extension-settings "${CHROME_APP_SUPPORT_DIR}/External Extensions" \
+    --root build/native-host-manifest "${CHROME_APP_SUPPORT_DIR}/NativeMessagingHosts" \
+    --identifier "$BUNDLE_ID" --version "$VERSION" pkg/CloudTabs.pkg
+
+echo ">> All done!"

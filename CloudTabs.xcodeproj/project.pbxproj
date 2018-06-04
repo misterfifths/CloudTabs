@@ -12,26 +12,11 @@
 		BD29BDDB20C4E1AB008008EA /* CloseAllTabsMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = BD29BDDA20C4E1AB008008EA /* CloseAllTabsMessage.m */; };
 		BD29BDE020C4E476008008EA /* SynchronousNativeHost.m in Sources */ = {isa = PBXBuildFile; fileRef = BD29BDDF20C4E476008008EA /* SynchronousNativeHost.m */; };
 		BD29BDE320C4EB2F008008EA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BD29BDE220C4EB2F008008EA /* AppDelegate.m */; };
-		BD29BDE620C4F5B7008008EA /* com.github.misterfifths.cloudtabs_host.json in Copy Manifest */ = {isa = PBXBuildFile; fileRef = BD29BDE420C4F587008008EA /* com.github.misterfifths.cloudtabs_host.json */; };
 		BDB4BCC620BDEF980058C658 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BDB4BCC520BDEF980058C658 /* main.m */; };
 		BDC7C71320C242AF00B4E933 /* SafariShared.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDC7C71220C242AF00B4E933 /* SafariShared.framework */; };
 		BDC7C71920C24C8300B4E933 /* NativeHostMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = BDC7C71820C24C8300B4E933 /* NativeHostMessage.m */; };
 		BDC7C71C20C3840C00B4E933 /* SafariSharedHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = BDC7C71B20C3840C00B4E933 /* SafariSharedHelpers.m */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		BD29BDE520C4F5AB008008EA /* Copy Manifest */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 12;
-			dstPath = "";
-			dstSubfolderSpec = 6;
-			files = (
-				BD29BDE620C4F5B7008008EA /* com.github.misterfifths.cloudtabs_host.json in Copy Manifest */,
-			);
-			name = "Copy Manifest";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		BD29BDD320C4E193008008EA /* GetTabsMessage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GetTabsMessage.h; sourceTree = "<group>"; };
@@ -46,7 +31,6 @@
 		BD29BDDF20C4E476008008EA /* SynchronousNativeHost.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SynchronousNativeHost.m; sourceTree = "<group>"; };
 		BD29BDE120C4EB2F008008EA /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		BD29BDE220C4EB2F008008EA /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		BD29BDE420C4F587008008EA /* com.github.misterfifths.cloudtabs_host.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = com.github.misterfifths.cloudtabs_host.json; sourceTree = "<group>"; };
 		BDB0821520C1EB6000A409FA /* WBSCloudTabStore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WBSCloudTabStore.h; sourceTree = "<group>"; };
 		BDB0821620C1EB8D00A409FA /* SafariShared.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SafariShared.h; sourceTree = "<group>"; };
 		BDB0821720C1EC3800A409FA /* WBSCloudTabDevice.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WBSCloudTabDevice.h; sourceTree = "<group>"; };
@@ -129,7 +113,6 @@
 				BD29BDE120C4EB2F008008EA /* AppDelegate.h */,
 				BD29BDE220C4EB2F008008EA /* AppDelegate.m */,
 				BDB4BCC520BDEF980058C658 /* main.m */,
-				BD29BDE420C4F587008008EA /* com.github.misterfifths.cloudtabs_host.json */,
 			);
 			path = CloudTabs;
 			sourceTree = "<group>";
@@ -151,7 +134,6 @@
 			buildPhases = (
 				BDB4BCBE20BDEF980058C658 /* Sources */,
 				BDB4BCBF20BDEF980058C658 /* Frameworks */,
-				BD29BDE520C4F5AB008008EA /* Copy Manifest */,
 			);
 			buildRules = (
 			);
@@ -329,7 +311,7 @@
 				DEVELOPMENT_TEAM = 9H94YF52ZT;
 				DSTROOT = "";
 				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/FrameworkStubs";
-				INSTALL_PATH = "$(PROJECT_DIR)/build";
+				INSTALL_PATH = "$(PROJECT_DIR)/build/app-support";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -342,7 +324,7 @@
 				DEVELOPMENT_TEAM = 9H94YF52ZT;
 				DSTROOT = "";
 				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/FrameworkStubs";
-				INSTALL_PATH = "$(PROJECT_DIR)/build";
+				INSTALL_PATH = "$(PROJECT_DIR)/build/app-support";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

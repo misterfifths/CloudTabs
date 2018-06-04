@@ -1,0 +1,32 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+cd "$(dirname "$0")"
+
+if [ -f extension-key.pem ]; then
+    echo "Using existing key in extension-key.pem"
+else
+    echo "Generating new key..."
+    openssl genrsa 2048 | openssl pkcs8 -topk8 -nocrypt -out extension-key.pem
+fi
+
+BASE64_KEY=$(openssl rsa -in extension-key.pem -pubout -outform DER | openssl base64 -A)
+EXTENSION_ID=$(openssl rsa -in extension-key.pem -pubout -outform DER | shasum -a 256 | head -c32 | tr 0-9a-f a-p)
+
+echo "Extension ID is $EXTENSION_ID"
+
+
+FILES_TO_PATCH=( \
+    build/native-host-manifest/com.github.misterfifths.cloudtabs_host.json \
+    build/extension/manifest.json \
+)
+
+for f in ${FILES_TO_PATCH[@]}; do
+    echo "Patching ${f}..."
+    sed -i '' "s|__EXTENSION_ID__|${EXTENSION_ID}|" "$f"
+    sed -i '' "s|__BASE64_KEY__|${BASE64_KEY}|" "$f"
+done
+
+echo "Renaming external extension JSON..."
+mv build/external-extension-settings/__EXTENSION_ID__.json "build/external-extension-settings/${EXTENSION_ID}.json"

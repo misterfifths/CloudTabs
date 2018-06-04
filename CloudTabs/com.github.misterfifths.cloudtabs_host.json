@@ -1,7 +1,0 @@
-{
-    "name": "com.github.misterfifths.cloudtabs_host",
-    "description": "CloudTabs Extension Native Host",
-    "path": "/Library/Google/Chrome/NativeMessagingHosts/CloudTabs",
-    "type": "stdio",
-    "allowed_origins": [ "chrome-extension://goenjmepgnogipkeplpohojbflcoodhf/" ]
-}

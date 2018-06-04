@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+cd "$(dirname "$0")"
+
+VERSION=$(cat VERSION)
+
+echo "Current version is '${VERSION}'"
+
+
+FILES_TO_PATCH=( \
+    build/native-host-manifest/com.github.misterfifths.cloudtabs_host.json \
+    build/extension/manifest.json \
+    build/external-extension-settings/*.json \
+)
+
+for f in ${FILES_TO_PATCH[@]}; do
+    echo "Patching ${f}..."
+    sed -i '' "s|__VERSION__|${VERSION}|" "$f"
+done
