@@ -38,18 +38,22 @@ find build -type f -name .DS_Store -delete
 find build -type f -exec xattr -c "{}" \;
 
 
-echo ">> Packing extension..."
+# The Chrome store doesn't like .crx files anymore... skipping this for now in favor of a zip
+# echo ">> Packing extension..."
 
-# There's no way to control the filename of the .crx this generates; it's always <directory name>.crx.
-# --no-message-box seems to have no effect on recent Chromes, but apparently once upon a time it was necessary
-# to do this without user intervention.
-"$CHROME" --pack-extension="`pwd`/build/extension" --pack-extension-key=extension-key.pem --no-message-box
+# # There's no way to control the filename of the .crx this generates; it's always <directory name>.crx.
+# # --no-message-box seems to have no effect on recent Chromes, but apparently once upon a time it was necessary
+# # to do this without user intervention.
+# "$CHROME" --pack-extension="`pwd`/build/extension" --pack-extension-key=extension-key.pem --no-message-box
 
-echo ">> Sanitizing (again)..."
-xattr -c build/extension.crx
+# echo ">> Sanitizing (again)..."
+# xattr -c build/extension.crx
 
 
-mv build/extension.crx pkg/CloudTabs.crx
+# mv build/extension.crx pkg/CloudTabs.crx
+
+echo ">> Zipping extension..."
+(cd build/extension; zip -r ../../pkg/CloudTabsExtension.zip .)
 
 
 echo ">> Generating .pkg..."
@@ -58,6 +62,6 @@ productbuild \
     --root build/app-support "$APP_SUPPORT_DIR" \
     --root build/external-extension-settings "${CHROME_APP_SUPPORT_DIR}/External Extensions" \
     --root build/native-host-manifest "${CHROME_APP_SUPPORT_DIR}/NativeMessagingHosts" \
-    --identifier "$BUNDLE_ID" --version "$VERSION" pkg/CloudTabs.pkg
+    --identifier "$BUNDLE_ID" --version "$VERSION" pkg/CloudTabsNativeHost.pkg
 
 echo ">> All done!"

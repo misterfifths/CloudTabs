@@ -1,11 +1,11 @@
 {
   "key": "__BASE64_KEY__",
   
-  "name": "Safari CloudTabs",
+  "name": "CloudTabs",
   "short_name": "CloudTabs",
   "version": "__VERSION__",
   "manifest_version": 2,
-  "description": "Fetch tabs from your mobile iOS devices.",
+  "description": "Fetch tabs from Safari on your iOS devices.",
   "homepage_url": "https://github.com/misterfifths/CloudTabs",
   "icons": {
     "128": "icons/icon128.png"

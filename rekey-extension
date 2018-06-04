@@ -4,15 +4,20 @@ set -euo pipefail
 
 cd "$(dirname "$0")"
 
-if [ -f extension-key.pem ]; then
-    echo "Using existing key in extension-key.pem"
+OPENSSL_KEY_ARGS="-in extension-key.pem"
+
+if [ -f extension-pubkey.pem ]; then
+    echo "Using existing public key in extension-pubkey.pem"
+    OPENSSL_KEY_ARGS="-in extension-pubkey.pem -pubin"
+elif [ -f extension-key.pem ]; then
+    echo "Using existing private key in extension-key.pem"
 else
     echo "Generating new key..."
     openssl genrsa 2048 | openssl pkcs8 -topk8 -nocrypt -out extension-key.pem
 fi
 
-BASE64_KEY=$(openssl rsa -in extension-key.pem -pubout -outform DER | openssl base64 -A)
-EXTENSION_ID=$(openssl rsa -in extension-key.pem -pubout -outform DER | shasum -a 256 | head -c32 | tr 0-9a-f a-p)
+BASE64_KEY=$(openssl rsa $OPENSSL_KEY_ARGS -pubout -outform DER | openssl base64 -A)
+EXTENSION_ID=$(openssl rsa $OPENSSL_KEY_ARGS -pubout -outform DER | shasum -a 256 | head -c32 | tr 0-9a-f a-p)
 
 echo "Extension ID is $EXTENSION_ID"
 

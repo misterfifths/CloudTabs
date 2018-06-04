@@ -3,6 +3,7 @@ modified-stub.tbd
 build/
 pkg/
 extension-key.pem
+extension-pubkey.pem
 
 # OS X
 .DS_Store
