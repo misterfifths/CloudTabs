@@ -10,7 +10,7 @@ html {
     color: #302020;
     font-family: BlinkMacSystemFont, -apple-system, sans-serif;
     font-size: 16pt;
-    max-width: 40%;
+    max-width: 45%;
     margin: 0 auto 4em auto;
 }
 
@@ -47,22 +47,31 @@ ol {
     padding: 1.2em 0.25em 1.2em 0;
 }
 
-.close-button {
+.hidden-button {
     flex-grow: 0;
     border: none;
     background-color: transparent;
     outline: none;
     opacity: 0.0;
-    font-size: 20px;
     padding: 0;
     min-width: 1em;
 }
 
-:hover>.close-button {
+.close-button {
+    font-size: 24px;
+}
+
+.refresh-button {
+    font-size: 18px;
+    vertical-align: 2px;
+    margin-right: 0.5em;
+}
+
+:hover>.hidden-button {
     opacity: 0.3;
 }
 
-.close-button:hover {
+.hidden-button:hover {
     opacity: 1;
 }
 
@@ -105,6 +114,8 @@ ol {
     font-weight: normal;
     font-size: 75%;
     align-self: center;
+    flex-grow: 1;
+    text-align: center;
 }
 
 :hover>.list-header-details {

@@ -14,7 +14,6 @@ var app = new Vue({
     created() {
         // Non-observables
         this.port = null;
-        this.nextMessageID = 1;
         this.pendingHandler = null;
         this.timeagoInstance = timeago();
     },
@@ -26,6 +25,18 @@ var app = new Vue({
     },
 
     methods: {
+        connect() {
+            // Doing one-shot chrome.runtime.sendMessage calls, while convenient, seems
+            // to not play nice with interspersed native messaging calls. So we need
+            // a dedicated port.
+
+            this.port = chrome.runtime.connect();
+            this.port.onMessage.addListener(message => {
+                if(this.pendingHandler) this.pendingHandler(message);
+                this.pendingHandler = null;
+            });
+        },
+
         fetchPrefs() {
             chrome.storage.sync.get(this.prefs, newPrefs => {
                 this.prefs = newPrefs;
@@ -38,34 +49,24 @@ var app = new Vue({
             });
         },
 
-        connect() {
-            this.port = chrome.runtime.connectNative('com.github.misterfifths.cloudtabs_host');
-            this.port.onMessage.addListener(this._onNativeMessage);
-            this.port.onDisconnect.addListener(this._onDisconnected);
-
-            this.state = 'connected';
-            console.log('Connected to native host');
-        },
-
-        _onNativeMessage(message) {
-            this.pendingHandler(message);
-            this.pendingHandler = null;
-        },
-
-        _onDisconnected() {
-            console.log('Disconnected from native host');
-            this.state = 'disconnected';
-        },
-
         _sendMessage(message, handler) {
-            message.id = this.nextMessageID++;
-            this.pendingHandler = handler;
+            this.pendingHandler = response => {
+                if (response && response.error) {
+                    console.log('Error from background script:', response);
+                    this.state = 'disconnected';
+                    return;
+                }
+
+                handler(response);
+            };
+
             this.port.postMessage(message);
         },
 
-        fetchTabs() {
-            this._sendMessage({ 'message': 'getTabs' }, response => {
-                this.devices = response.devices;
+        fetchTabs(forceRefresh) {
+            const message = { 'message': forceRefresh ? 'refreshTabs' : 'getTabs' };
+            this._sendMessage(message, response => {
+                this.devices = response;
             });
         },
 
@@ -75,7 +76,7 @@ var app = new Vue({
                 'deviceName': device.name,
                 'tabUUID': tab.uuid
             };
-            
+
             this._sendMessage(message, response => {
                 if(response.success) {
                     device.tabs.splice(device.tabs.indexOf(tab), 1);
@@ -109,7 +110,7 @@ var app = new Vue({
 
         sortedTabs(device) {
             if(!this.prefs.reverseTabOrder) return device.tabs;
-            
+
             let reversedTabs = device.tabs.slice();
             reversedTabs.reverse();
             return reversedTabs;
@@ -133,7 +134,7 @@ var app = new Vue({
 
         anyTabs() {
             if(!this.loaded) return false;
-            
+
             for(const device of this.devices) {
                 if(device.tabs && device.tabs.length > 0) return true;
             }

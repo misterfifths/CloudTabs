@@ -2,6 +2,8 @@
 
 Vaguely prioritized:
 
-- Background JS in the extension that caches tabs, so we don't launch the native helper on every new tab
-- Clean up `state` logic in the vue app
+- Clean up `state` logic... it's ugly and probably flaky
+- Test when offline
+- Better error handling
 - Fancy animations
+- JS cleanup

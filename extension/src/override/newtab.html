@@ -15,8 +15,9 @@
 			No cloud tabs :(
 		</div>
 
-		<div class="status-message with-cloud-icon" v-if="connectionError">
-			Error connecting to the native helper :(
+		<div class="status-message" v-if="connectionError">
+			<p>Error connecting to the native helper :(</p>
+			<p><a href="https://github.com/misterfifths/CloudTabs/releases/latest">Click here to download it.</a></p>
 		</div>
 
 		<ul id="device-list" v-if="anyTabs">
@@ -30,13 +31,14 @@
 						{{device.tabs.length}} tabs ▪︎ last modified {{lastModifiedString(device)}}
 					</span>
 
-					<button v-if="device.supportsCloseRequests" class="close-button" title="Close all tabs on this device" @click="closeAllTabs(device)">⊗</button>
+					<button class="hidden-button refresh-button" title="Refresh tabs" @click="fetchTabs(true)">⟳</button>
+					<button v-if="device.supportsCloseRequests" class="hidden-button close-button" title="Close all tabs on this device" @click="closeAllTabs(device)">⊗</button>
 				</div>
 
 				<ol :class="{ 'tab-list': true, nowrap: prefs.truncateTabTitles }">
 					<li v-for="tab in sortedTabs(device)" :key="tab.uuid">
 						<a @click="handleTabClick(device, tab)" :href="tab.url">{{tab.title}}</a>
-						<button v-if="device.supportsCloseRequests" class="close-button" title="Close tab" @click="closeTab(device, tab)">⊗</button>
+						<button v-if="device.supportsCloseRequests" class="hidden-button close-button" title="Close tab" @click="closeTab(device, tab)">⊗</button>
 					</li>
 				</ol>
 			</li>
