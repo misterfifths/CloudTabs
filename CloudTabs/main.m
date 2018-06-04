@@ -8,8 +8,7 @@
 int main(int argc, const char * argv[])
 {
     @autoreleasepool {
-        NSURL *dumpDirectoryURL = [NSURL fileURLWithPath:@"~/Desktop/cloudtabs-dump".stringByExpandingTildeInPath isDirectory:YES];
-        AppDelegate *appDelegate = [[AppDelegate alloc] initWithDumpDirectoryURL:dumpDirectoryURL];
+        AppDelegate *appDelegate = [AppDelegate new];
 
         NSApplication.sharedApplication.delegate = appDelegate;
         [NSApplication.sharedApplication run];

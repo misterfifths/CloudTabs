@@ -1,0 +1,23 @@
+{
+  "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAxe9miw5sNhPQTg0z9mSHSvoBIE5DUQX8AbinrXi5IbPzLVxkl+fRT8RPg3GjD4cbi578a9vSGWJKP7jSUqfFOtDYH3NiXq0vI+mTGtbq+5zkZFd7FpTQFyWxgAfhVM/OyIcDB4AXUc1QFegYR6K4oyBiEO8kqHiOkhl2x0JyrRNW/tM5S8LQficEqng1+OuG1b+DbZjvADNaiP3nlJcFgUF5FYhTSXpl/uiqp3dno/7c2woOn1gG1LZCeh+hKw5gG9fukfF6Ebjs+wpjM73phX27Wh0THivjbiHeMOuMIOXma3XqE/+HBTmkizT7ItZdZ7cnTCTPQsbiWmB3X+VruQIDAQAB",
+  
+  "name": "Safari CloudTabs",
+  "short_name": "CloudTabs",
+  "version": "0.0.1",
+  "manifest_version": 2,
+  "description": "Fetch tabs from your mobile iOS devices.",
+  "homepage_url": "https://github.com/misterfifths/CloudTabs",
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "chrome_url_overrides": {
+    "newtab": "src/override/newtab.html"
+  },
+  "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
+  "permissions": [
+    "storage",
+    "nativeMessaging"
+  ]
+}

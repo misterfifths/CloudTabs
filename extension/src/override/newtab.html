@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>New Tab</title>
+	<link rel="stylesheet" type="text/css" href="newtab.css">
+</head>
+<body>
+	<div id="app" v-cloak>
+		<div class="status-message with-cloud-icon" v-if="loading">
+			Fetching tabs...
+		</div>
+
+		<div class="status-message with-cloud-icon" v-if="loaded && !anyTabs">
+			No cloud tabs :(
+		</div>
+
+		<div class="status-message with-cloud-icon" v-if="connectionError">
+			Error connecting to the native helper :(
+		</div>
+
+		<ul id="device-list" v-if="anyTabs">
+			<li v-for="device in devices" v-if="device.tabs.length" :key="device.name">
+				<div class="list-header">
+					<span class="with-cloud-icon">
+						{{device.name}}
+					</span>
+
+					<span class="list-header-details">
+						{{device.tabs.length}} tabs ▪︎ last modified {{lastModifiedString(device)}}
+					</span>
+
+					<button v-if="device.supportsCloseRequests" class="close-button" title="Close all tabs on this device" @click="closeAllTabs(device)">⊗</button>
+				</div>
+
+				<ol :class="{ 'tab-list': true, nowrap: prefs.truncateTabTitles }">
+					<li v-for="tab in sortedTabs(device)" :key="tab.uuid">
+						<a @click="handleTabClick(device, tab)" :href="tab.url">{{tab.title}}</a>
+						<button v-if="device.supportsCloseRequests" class="close-button" title="Close tab" @click="closeTab(device, tab)">⊗</button>
+					</li>
+				</ol>
+			</li>
+		</ul>
+
+		<div id="preferences">
+			<div class="list-header">
+				<span class="with-gear-icon">
+					Preferences
+				</span>
+			</div>
+
+			<ul id="prefs-list">
+				<li>
+					<label>
+						<input type="checkbox" v-model="prefs.sendCloseRequestOnClick" @change="storePrefs()">
+						Close remote tabs when opening them locally
+					</label>
+				</li>
+				<li>
+					<label>
+						<input type="checkbox" v-model="prefs.truncateTabTitles" @change="storePrefs()">
+						Limit tab titles to single lines
+					</label>
+				</li>
+				<li>
+					<label>
+						<input type="checkbox" v-model="prefs.reverseTabOrder" @change="storePrefs()">
+						Reverse tab order (oldest first)
+					</label>
+				</li>
+			</ul>
+		</div>
+	</div>
+
+	<script src="vue.min.js"></script>
+	<script src="timeago.min.js"></script>
+	<script src="app.js"></script>
+</body>
+</html>

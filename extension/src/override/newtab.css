@@ -1,0 +1,149 @@
+@charset "UTF-8";
+
+/* A special vue.js thing; it'll remove this attribute after mounting */
+[v-cloak] {
+    display: none;
+}
+
+html {
+    background: #CBC7B5;
+    color: #302020;
+    font-family: BlinkMacSystemFont, -apple-system, sans-serif;
+    font-size: 16pt;
+    max-width: 40%;
+    margin: 0 auto 4em auto;
+}
+
+a {
+    text-decoration: none;
+}
+
+a,
+a:active,
+a:visited {
+    color: inherit;
+}
+
+ul,
+ol {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.tab-list>li,
+#prefs-list>li {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    display: flex;
+}
+
+.tab-list>li a {
+    display: inline-block;
+    padding: 1.2em 0.25em 1.2em 0;
+    flex-grow: 1;
+}
+
+#prefs-list>li {
+    padding: 1.2em 0.25em 1.2em 0;
+}
+
+.close-button {
+    flex-grow: 0;
+    border: none;
+    background-color: transparent;
+    outline: none;
+    opacity: 0.0;
+    font-size: 20px;
+    padding: 0;
+    min-width: 1em;
+}
+
+:hover>.close-button {
+    opacity: 0.3;
+}
+
+.close-button:hover {
+    opacity: 1;
+}
+
+.status-message {
+    opacity: 0.5;
+    text-align: center;
+}
+
+.list-header,
+.status-message {
+    font-weight: bold;
+    margin-bottom: 0;
+    margin-top: 4em;
+    padding-left: 0.25em;
+    padding-bottom: 1em;
+}
+
+.list-header {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid black;
+}
+
+.with-cloud-icon::before {
+    content: "☁︎ ";
+    font-family: 'Arial Unicode MS';
+    vertical-align: -4px;
+    font-size: 1.5em;
+}
+
+.with-gear-icon::before {
+    content: "⚙︎ ";
+    font-family: Menlo;
+    vertical-align: -2px;
+    font-size: 1.5em;
+}
+
+.list-header-details {
+    opacity: 0;
+    font-weight: normal;
+    font-size: 75%;
+    align-self: center;
+}
+
+:hover>.list-header-details {
+    opacity: 0.6;
+}
+
+#preferences .list-header {
+    border-bottom-color: transparent;
+}
+
+#preferences:hover .list-header {
+    border-bottom-color: inherit;
+}
+
+#preferences {
+    margin-top: 10em;
+    opacity: 0.3;
+}
+
+#prefs-list {
+    opacity: 0;
+}
+
+#preferences:hover {
+    opacity: 1;
+}
+
+#preferences:hover #prefs-list {
+    opacity: 1;
+}
+
+#prefs-list input[type=checkbox] {
+    position: relative;
+    top: -2px;
+}
+
+/* .nowrap is controlled by a preference */
+.nowrap.tab-list>li a {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}

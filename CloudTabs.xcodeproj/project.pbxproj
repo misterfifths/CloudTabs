@@ -7,24 +7,57 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		BDB0821B20C1EDF900A409FA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BDB0821A20C1EDF900A409FA /* AppDelegate.m */; };
+		BD29BDD520C4E193008008EA /* GetTabsMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = BD29BDD420C4E193008008EA /* GetTabsMessage.m */; };
+		BD29BDD820C4E1A1008008EA /* CloseTabMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = BD29BDD720C4E1A1008008EA /* CloseTabMessage.m */; };
+		BD29BDDB20C4E1AB008008EA /* CloseAllTabsMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = BD29BDDA20C4E1AB008008EA /* CloseAllTabsMessage.m */; };
+		BD29BDE020C4E476008008EA /* SynchronousNativeHost.m in Sources */ = {isa = PBXBuildFile; fileRef = BD29BDDF20C4E476008008EA /* SynchronousNativeHost.m */; };
+		BD29BDE320C4EB2F008008EA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BD29BDE220C4EB2F008008EA /* AppDelegate.m */; };
+		BD29BDE620C4F5B7008008EA /* com.github.misterfifths.cloudtabs_host.json in Copy Manifest */ = {isa = PBXBuildFile; fileRef = BD29BDE420C4F587008008EA /* com.github.misterfifths.cloudtabs_host.json */; };
 		BDB4BCC620BDEF980058C658 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BDB4BCC520BDEF980058C658 /* main.m */; };
-		BDB4BCDD20BE024A0058C658 /* WebLocWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = BDB4BCDC20BE024A0058C658 /* WebLocWriter.m */; };
 		BDC7C71320C242AF00B4E933 /* SafariShared.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDC7C71220C242AF00B4E933 /* SafariShared.framework */; };
+		BDC7C71920C24C8300B4E933 /* NativeHostMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = BDC7C71820C24C8300B4E933 /* NativeHostMessage.m */; };
+		BDC7C71C20C3840C00B4E933 /* SafariSharedHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = BDC7C71B20C3840C00B4E933 /* SafariSharedHelpers.m */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		BD29BDE520C4F5AB008008EA /* Copy Manifest */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 12;
+			dstPath = "";
+			dstSubfolderSpec = 6;
+			files = (
+				BD29BDE620C4F5B7008008EA /* com.github.misterfifths.cloudtabs_host.json in Copy Manifest */,
+			);
+			name = "Copy Manifest";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		BD29BDD320C4E193008008EA /* GetTabsMessage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GetTabsMessage.h; sourceTree = "<group>"; };
+		BD29BDD420C4E193008008EA /* GetTabsMessage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GetTabsMessage.m; sourceTree = "<group>"; };
+		BD29BDD620C4E1A1008008EA /* CloseTabMessage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CloseTabMessage.h; sourceTree = "<group>"; };
+		BD29BDD720C4E1A1008008EA /* CloseTabMessage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CloseTabMessage.m; sourceTree = "<group>"; };
+		BD29BDD920C4E1AB008008EA /* CloseAllTabsMessage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CloseAllTabsMessage.h; sourceTree = "<group>"; };
+		BD29BDDA20C4E1AB008008EA /* CloseAllTabsMessage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CloseAllTabsMessage.m; sourceTree = "<group>"; };
+		BD29BDDC20C4E207008008EA /* NativeHostMessageProtected.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NativeHostMessageProtected.h; sourceTree = "<group>"; };
+		BD29BDDD20C4E2C5008008EA /* NativeHostMessages.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NativeHostMessages.h; sourceTree = "<group>"; };
+		BD29BDDE20C4E476008008EA /* SynchronousNativeHost.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SynchronousNativeHost.h; sourceTree = "<group>"; };
+		BD29BDDF20C4E476008008EA /* SynchronousNativeHost.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SynchronousNativeHost.m; sourceTree = "<group>"; };
+		BD29BDE120C4EB2F008008EA /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		BD29BDE220C4EB2F008008EA /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		BD29BDE420C4F587008008EA /* com.github.misterfifths.cloudtabs_host.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = com.github.misterfifths.cloudtabs_host.json; sourceTree = "<group>"; };
 		BDB0821520C1EB6000A409FA /* WBSCloudTabStore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WBSCloudTabStore.h; sourceTree = "<group>"; };
 		BDB0821620C1EB8D00A409FA /* SafariShared.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SafariShared.h; sourceTree = "<group>"; };
 		BDB0821720C1EC3800A409FA /* WBSCloudTabDevice.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WBSCloudTabDevice.h; sourceTree = "<group>"; };
 		BDB0821820C1ECC400A409FA /* WBSCloudTab.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WBSCloudTab.h; sourceTree = "<group>"; };
-		BDB0821920C1EDF800A409FA /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		BDB0821A20C1EDF900A409FA /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		BDB4BCC220BDEF980058C658 /* CloudTabs */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CloudTabs; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDB4BCC520BDEF980058C658 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		BDB4BCDB20BE024A0058C658 /* WebLocWriter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WebLocWriter.h; sourceTree = "<group>"; };
-		BDB4BCDC20BE024A0058C658 /* WebLocWriter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WebLocWriter.m; sourceTree = "<group>"; };
 		BDC7C71220C242AF00B4E933 /* SafariShared.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SafariShared.framework; path = FrameworkStubs/SafariShared.framework; sourceTree = "<group>"; };
+		BDC7C71720C24C8300B4E933 /* NativeHostMessage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NativeHostMessage.h; sourceTree = "<group>"; };
+		BDC7C71820C24C8300B4E933 /* NativeHostMessage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NativeHostMessage.m; sourceTree = "<group>"; };
+		BDC7C71A20C3840C00B4E933 /* SafariSharedHelpers.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SafariSharedHelpers.h; sourceTree = "<group>"; };
+		BDC7C71B20C3840C00B4E933 /* SafariSharedHelpers.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SafariSharedHelpers.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,6 +72,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BD29BDD220C4E173008008EA /* NativeHostMessages */ = {
+			isa = PBXGroup;
+			children = (
+				BD29BDDD20C4E2C5008008EA /* NativeHostMessages.h */,
+				BDC7C71720C24C8300B4E933 /* NativeHostMessage.h */,
+				BD29BDDC20C4E207008008EA /* NativeHostMessageProtected.h */,
+				BDC7C71820C24C8300B4E933 /* NativeHostMessage.m */,
+				BD29BDD320C4E193008008EA /* GetTabsMessage.h */,
+				BD29BDD420C4E193008008EA /* GetTabsMessage.m */,
+				BD29BDD620C4E1A1008008EA /* CloseTabMessage.h */,
+				BD29BDD720C4E1A1008008EA /* CloseTabMessage.m */,
+				BD29BDD920C4E1AB008008EA /* CloseAllTabsMessage.h */,
+				BD29BDDA20C4E1AB008008EA /* CloseAllTabsMessage.m */,
+			);
+			path = NativeHostMessages;
+			sourceTree = "<group>";
+		};
 		BDB0821420C1EB3100A409FA /* SafariShared */ = {
 			isa = PBXGroup;
 			children = (
@@ -46,6 +96,8 @@
 				BDB0821520C1EB6000A409FA /* WBSCloudTabStore.h */,
 				BDB0821720C1EC3800A409FA /* WBSCloudTabDevice.h */,
 				BDB0821820C1ECC400A409FA /* WBSCloudTab.h */,
+				BDC7C71A20C3840C00B4E933 /* SafariSharedHelpers.h */,
+				BDC7C71B20C3840C00B4E933 /* SafariSharedHelpers.m */,
 			);
 			path = SafariShared;
 			sourceTree = "<group>";
@@ -71,11 +123,13 @@
 			isa = PBXGroup;
 			children = (
 				BDB0821420C1EB3100A409FA /* SafariShared */,
-				BDB0821920C1EDF800A409FA /* AppDelegate.h */,
-				BDB0821A20C1EDF900A409FA /* AppDelegate.m */,
+				BD29BDD220C4E173008008EA /* NativeHostMessages */,
+				BD29BDDE20C4E476008008EA /* SynchronousNativeHost.h */,
+				BD29BDDF20C4E476008008EA /* SynchronousNativeHost.m */,
+				BD29BDE120C4EB2F008008EA /* AppDelegate.h */,
+				BD29BDE220C4EB2F008008EA /* AppDelegate.m */,
 				BDB4BCC520BDEF980058C658 /* main.m */,
-				BDB4BCDB20BE024A0058C658 /* WebLocWriter.h */,
-				BDB4BCDC20BE024A0058C658 /* WebLocWriter.m */,
+				BD29BDE420C4F587008008EA /* com.github.misterfifths.cloudtabs_host.json */,
 			);
 			path = CloudTabs;
 			sourceTree = "<group>";
@@ -97,6 +151,7 @@
 			buildPhases = (
 				BDB4BCBE20BDEF980058C658 /* Sources */,
 				BDB4BCBF20BDEF980058C658 /* Frameworks */,
+				BD29BDE520C4F5AB008008EA /* Copy Manifest */,
 			);
 			buildRules = (
 			);
@@ -143,9 +198,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BDB0821B20C1EDF900A409FA /* AppDelegate.m in Sources */,
-				BDB4BCDD20BE024A0058C658 /* WebLocWriter.m in Sources */,
+				BD29BDE020C4E476008008EA /* SynchronousNativeHost.m in Sources */,
+				BD29BDDB20C4E1AB008008EA /* CloseAllTabsMessage.m in Sources */,
+				BD29BDD520C4E193008008EA /* GetTabsMessage.m in Sources */,
+				BD29BDE320C4EB2F008008EA /* AppDelegate.m in Sources */,
+				BD29BDD820C4E1A1008008EA /* CloseTabMessage.m in Sources */,
+				BDC7C71C20C3840C00B4E933 /* SafariSharedHelpers.m in Sources */,
 				BDB4BCC620BDEF980058C658 /* main.m in Sources */,
+				BDC7C71920C24C8300B4E933 /* NativeHostMessage.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -269,7 +329,7 @@
 				DEVELOPMENT_TEAM = 9H94YF52ZT;
 				DSTROOT = "";
 				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/FrameworkStubs";
-				INSTALL_PATH = "$(PROJECT_DIR)/bin";
+				INSTALL_PATH = "$(PROJECT_DIR)/build";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -282,7 +342,7 @@
 				DEVELOPMENT_TEAM = 9H94YF52ZT;
 				DSTROOT = "";
 				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/FrameworkStubs";
-				INSTALL_PATH = "$(PROJECT_DIR)/bin";
+				INSTALL_PATH = "$(PROJECT_DIR)/build";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
