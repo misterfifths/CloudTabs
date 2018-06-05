@@ -110,12 +110,12 @@ productbuild \
 
 ./update-installer-xml.rb
 
-SIGNING_FLAG=""
+SIGNING_ARGS=( )
 
 if [ -f INSTALLER_SIGNING_ID ]; then
-    SIGNING_ID=$(cat INSTALLER_SIGNING_ID)
+    SIGNING_ID="$(cat INSTALLER_SIGNING_ID)"
+    SIGNING_ARGS=( --sign "$SIGNING_ID" )
     echo "Signing installer with ID '$SIGNING_ID'"
-    SIGNING_FLAG="--sign '$SIGNING_ID'"
 else
     echo "Not signing installer"
 fi
@@ -125,7 +125,8 @@ productbuild \
     --package-path build/installer \
     --resources build/installer/resources \
     --version "$VERSION" \
-    $SIGNING_FLAG \
+    "${SIGNING_ARGS[@]}" \
     dist/CloudTabsNativeHost.pkg
+
 
 echo ">> All done!"
