@@ -1,5 +1,19 @@
 #!/usr/bin/env bash
 
+# Relevant magic files:
+# - VERSION: version string; incorporated into the extension manifest
+# - One of:
+#     - extension-key.pem: A keypair
+#     - extension-pubkey.pem: A public key
+#     If one of these is present, it is used to generate the extension ID, which is incorporated
+#     into various files. The public key itself is part of the extension manifest. If neither
+#     file exists, a new key is generated and stored in extension-key.pem.
+# - INSTALLER_SIGNING_ID: The Common Name of an installer certificate to use to sign the installer
+#   .pkg. If this file is missing, the package is not signed (it still works, but it's a bit of a UI
+#   hassle for noobs). This must point to a "Developer ID Installer" certificate. You can generate
+#   one in Xcode's "Manage Certificates" view, but you need to be a paid developer program member.
+
+
 set -euo pipefail
 
 cd "$(dirname "$0")"
@@ -96,11 +110,22 @@ productbuild \
 
 ./update-installer-xml.rb
 
+SIGNING_FLAG=""
+
+if [ -f INSTALLER_SIGNING_ID ]; then
+    SIGNING_ID=$(cat INSTALLER_SIGNING_ID)
+    echo "Signing installer with ID '$SIGNING_ID'"
+    SIGNING_FLAG="--sign '$SIGNING_ID'"
+else
+    echo "Not signing installer"
+fi
+
 productbuild \
     --distribution build/installer/distribution.xml \
     --package-path build/installer \
     --resources build/installer/resources \
     --version "$VERSION" \
+    $SIGNING_FLAG \
     dist/CloudTabsNativeHost.pkg
 
 echo ">> All done!"

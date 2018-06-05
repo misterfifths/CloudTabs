@@ -4,6 +4,7 @@ build/
 dist/
 extension-key.pem
 extension-pubkey.pem
+INSTALLER_SIGNING_ID
 
 # OS X
 .DS_Store
