@@ -15,7 +15,7 @@ This project has a Chrome extension that replaces the New Tab screen with one th
 This is a two-part installation, since Chrome extensions can't have bundled native components. It doesn't matter which order you do these in, but you will need to restart after installing the helper app.
 
 * [Install the extension from the Chrome store](https://chrome.google.com/webstore/detail/lnaededecanoipjemdaffkkhlfbdlpan).
-* [Install the native helper app](releases/latest). Restart Chrome after this.
+* [Install the native helper app](https://github.com/misterfifths/CloudTabs/releases/latest). Restart Chrome after this.
 
 ### Tech Details
 
