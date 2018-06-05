@@ -16,5 +16,5 @@ FILES_TO_PATCH=( \
 
 for f in ${FILES_TO_PATCH[@]}; do
     echo "Patching ${f}..."
-    sed -i '' "s|__VERSION__|${VERSION}|" "$f"
+    sed -i '' "s|__VERSION__|${VERSION}|g" "$f"
 done

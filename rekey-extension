@@ -29,6 +29,6 @@ FILES_TO_PATCH=( \
 
 for f in ${FILES_TO_PATCH[@]}; do
     echo "Patching ${f}..."
-    sed -i '' "s|__EXTENSION_ID__|${EXTENSION_ID}|" "$f"
-    sed -i '' "s|__BASE64_KEY__|${BASE64_KEY}|" "$f"
+    sed -i '' "s|__EXTENSION_ID__|${EXTENSION_ID}|g" "$f"
+    sed -i '' "s|__BASE64_KEY__|${BASE64_KEY}|g" "$f"
 done
