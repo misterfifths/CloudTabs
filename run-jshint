@@ -1,0 +1,8 @@
+#!/bin/bash
+
+cd "`dirname $0`"
+
+IFS=$'\n'
+FILES=( $(find extension/ -type f -name '*.js' -not -name '*.min.js') )
+
+jshint "${FILES[@]}" --config jshint_config.json

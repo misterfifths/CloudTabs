@@ -1,0 +1,19 @@
+{
+  "browser": true,
+  "esversion": 6,
+
+  "strict": true,
+  "globalstrict": true,
+  "undef": true,
+  "trailing": true,
+  "forin": true,
+
+  "smarttabs": true,
+
+  "predef": [
+    "console",
+    "chrome",
+    "timeago",
+    "Vue"
+  ]
+}

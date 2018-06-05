@@ -1,3 +1,5 @@
+'use strict';
+
 var port = null;
 var state = 'connecting';
 var devices = null;
@@ -137,15 +139,16 @@ chrome.runtime.onConnect.addListener(port => {
             case 'closeTab':
                 closeTabByID(message.deviceUUID, message.tabUUID, result => {
                     if(result.error) sendResponse(result);
-                    else sendResponse({ success: result })
+                    else sendResponse({ success: result });
                 });
                 break;
 
             case 'closeAllTabs':
                 closeAllTabsByID(message.deviceUUID, result => {
                     if(result.error) sendResponse(result);
-                    else sendResponse({ success: result })
+                    else sendResponse({ success: result });
                 });
+                break;
 
             default:
                 sendResponse({ error: 'Unknown message' });
