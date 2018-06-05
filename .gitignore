@@ -1,7 +1,7 @@
 raw-stub.tbd
 modified-stub.tbd
 build/
-pkg/
+dist/
 extension-key.pem
 extension-pubkey.pem
 

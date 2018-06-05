@@ -12,7 +12,6 @@ echo "Current version is '${VERSION}'"
 FILES_TO_PATCH=( \
     build/native-host-manifest/com.github.misterfifths.cloudtabs_host.json \
     build/extension/manifest.json \
-    build/external-extension-settings/*.json \
 )
 
 for f in ${FILES_TO_PATCH[@]}; do

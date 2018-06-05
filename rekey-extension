@@ -32,6 +32,3 @@ for f in ${FILES_TO_PATCH[@]}; do
     sed -i '' "s|__EXTENSION_ID__|${EXTENSION_ID}|" "$f"
     sed -i '' "s|__BASE64_KEY__|${BASE64_KEY}|" "$f"
 done
-
-echo "Renaming external extension JSON..."
-mv build/external-extension-settings/__EXTENSION_ID__.json "build/external-extension-settings/${EXTENSION_ID}.json"

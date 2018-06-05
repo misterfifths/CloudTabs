@@ -12,12 +12,23 @@ BUNDLE_ID="com.github.misterfifths.CloudTabs"
 VERSION=$(cat VERSION)
 
 
+echo ">> Cleaning up..."
+
+[ -d build ] && rm -r build
+[ -d dist ] && rm -r dist
+
+mkdir build
+mkdir dist
+
+
+echo ">> Building native host..."
+
+xcodebuild -project CloudTabs.xcodeproj -configuration Release -quiet
+
+
 echo ">> Moving things into place..."
 
 cp -R extension build/
-
-mkdir -p build/external-extension-settings
-cp external-extension-thing.json "build/external-extension-settings/__EXTENSION_ID__.json"
 
 mkdir -p build/native-host-manifest
 cp com.github.misterfifths.cloudtabs_host.json build/native-host-manifest
@@ -50,18 +61,46 @@ find build -type f -exec xattr -c "{}" \;
 # xattr -c build/extension.crx
 
 
-# mv build/extension.crx pkg/CloudTabs.crx
+# mv build/extension.crx dist/CloudTabs.crx
+
 
 echo ">> Zipping extension..."
-(cd build/extension; zip -r ../../pkg/CloudTabsExtension.zip .)
+(cd build/extension; zip -r ../../dist/CloudTabsExtension.zip .)
 
 
-echo ">> Generating .pkg..."
+echo ">> Generating installer..."
+
+mkdir -p build/installer/resources
+
+cp installer-assets/* build/installer/resources
+
+pkgbuild \
+    --root build/app-support \
+    --install-location "$APP_SUPPORT_DIR" \
+    --identifier "$BUNDLE_ID.app-suppot" \
+    build/installer/AppSupport.pkg
+
+pkgbuild \
+    --root build/native-host-manifest \
+    --install-location "${CHROME_APP_SUPPORT_DIR}/NativeMessagingHosts" \
+    --identifier "$BUNDLE_ID.native-host-manifest" \
+    build/installer/NativeHostManifest.pkg
 
 productbuild \
-    --root build/app-support "$APP_SUPPORT_DIR" \
-    --root build/external-extension-settings "${CHROME_APP_SUPPORT_DIR}/External Extensions" \
-    --root build/native-host-manifest "${CHROME_APP_SUPPORT_DIR}/NativeMessagingHosts" \
-    --identifier "$BUNDLE_ID" --version "$VERSION" pkg/CloudTabsNativeHost.pkg
+    --synthesize \
+    --package build/installer/AppSupport.pkg \
+    --package build/installer/NativeHostManifest.pkg \
+    --identifier "$BUNDLE_ID" \
+    --version "$VERSION" \
+    build/installer/distribution.xml
+
+./update-installer-xml.rb
+
+productbuild \
+    --distribution build/installer/distribution.xml \
+    --package-path build/installer \
+    --resources build/installer/resources \
+    --version "$VERSION" \
+    dist/CloudTabsNativeHost.pkg
 
 echo ">> All done!"
