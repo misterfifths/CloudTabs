@@ -309,7 +309,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEPLOYMENT_LOCATION = YES;
 				DEVELOPMENT_TEAM = 9H94YF52ZT;
-				DSTROOT = "";
+				DSTROOT = /;
 				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/FrameworkStubs";
 				INSTALL_PATH = "$(PROJECT_DIR)/build/app-support";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -322,7 +322,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEPLOYMENT_LOCATION = YES;
 				DEVELOPMENT_TEAM = 9H94YF52ZT;
-				DSTROOT = "";
+				DSTROOT = /;
 				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/FrameworkStubs";
 				INSTALL_PATH = "$(PROJECT_DIR)/build/app-support";
 				PRODUCT_NAME = "$(TARGET_NAME)";
