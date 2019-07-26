@@ -91,7 +91,7 @@ cp installer-assets/* build/installer/resources
 pkgbuild \
     --root build/app-support \
     --install-location "$APP_SUPPORT_DIR" \
-    --identifier "$BUNDLE_ID.app-suppot" \
+    --identifier "$BUNDLE_ID.app-support" \
     build/installer/AppSupport.pkg
 
 pkgbuild \
