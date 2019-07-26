@@ -156,7 +156,9 @@ chrome.runtime.onConnect.addListener(port => {
     });
 });
 
-chrome.runtime.onInstalled.addListener(function () {
+chrome.runtime.onStartup.addListener(function () {
+    console.log('Starting up...');
+
     connect();
     fetchTabs();
 
