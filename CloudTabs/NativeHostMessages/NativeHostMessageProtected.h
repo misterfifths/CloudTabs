@@ -4,8 +4,14 @@
 #import "NativeHostMessage.h"
 
 
+NS_ASSUME_NONNULL_BEGIN
+
+
 @interface NativeHostMessage (Protected)
 
 -(nullable instancetype)initWithDictionary:(NSDictionary *)dictionary;
 
 @end
+
+
+NS_ASSUME_NONNULL_END
